@@ -71,4 +71,4 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Created by Brands Water Team 
+Created by mohd uzaif khan
