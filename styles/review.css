@@ -1,0 +1,269 @@
+/* Review Us Page Styles */
+
+/* Page Background */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../images/background.jpeg') center center;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Nunito Sans', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    transition: background-position 0.5s ease;
+}
+
+/* Review Page Container */
+#review-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+/* Review Us Tile */
+.review-us-tile {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    position: relative;
+    transform: none;
+    overflow: hidden;
+}
+
+.review-us-tile:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+.review-title {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.review-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #333;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.review-title h1:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #4a90e2;
+    border-radius: 3px;
+}
+
+.review-content {
+    text-align: center;
+    padding: 0 15px;
+}
+
+.review-description {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group textarea {
+    height: 80px;
+    resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.submit-btn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+    margin-top: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:hover {
+    background-color: #3a7bc8;
+    transform: translateY(-2px);
+}
+
+.form-message {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4a90e2;
+}
+
+.back-to-home {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.back-to-home a {
+    display: inline-block;
+    font-size: 14px;
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+.back-to-home a:hover {
+    color: #3a7bc8;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .review-us-tile {
+        width: 85%;
+        padding: 20px;
+    }
+    .review-title h1 {
+        font-size: 28px;
+    }
+    .review-description {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .review-us-tile {
+        width: 90%;
+        padding: 20px 15px;
+        max-width: 600px;
+    }
+    .review-title h1 {
+        font-size: 26px;
+    }
+    .review-description {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    .form-group label {
+        font-size: 13px;
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 7px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .review-us-tile {
+        width: 95%;
+        padding: 15px 12px;
+    }
+    .review-title h1 {
+        font-size: 24px;
+    }
+    .review-description {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    .form-group {
+        margin-bottom: 10px;
+    }
+    .form-group textarea {
+        height: 60px;
+    }
+}
+
+/* Mobile Touch Enhancements */
+.active-touch {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(0.98) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Enable content scrolling on mobile */
+html, body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+}
+
+/* Fix for iOS touch scrolling */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Form field improvements for mobile */
+input:focus, textarea:focus {
+    position: relative;
+    z-index: 2;
+} 

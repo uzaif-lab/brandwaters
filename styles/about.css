@@ -1,0 +1,229 @@
+/* About Us Page Styles */
+
+/* Custom Font Declaration */
+@font-face {
+    font-family: 'TheSignature';
+    src: url('../assets/Thesignature.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Page Background */
+body {
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    transition: background-position 0.5s ease;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* About Page Container */
+#about-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* About Us Tile */
+.about-us-tile {
+    width: 90%;
+    max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    padding: 3rem 2.5rem;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-us-tile:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.about-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.about-title h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+
+.about-title h1:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #4a90e2;
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+}
+
+.about-description {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 2.5rem;
+    text-align: justify;
+}
+
+.signature-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.signature-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: #333;
+    transition: color 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.back-to-home {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.back-to-home a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: rgba(74, 144, 226, 0.1);
+    color: #333;
+    text-decoration: none;
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-radius: 8px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.back-to-home a:hover {
+    background-color: rgba(74, 144, 226, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .about-us-tile {
+        width: 90%;
+        padding: 2.5rem 2rem;
+    }
+    
+    .about-title h1 {
+        font-size: 2.8rem;
+    }
+    
+    .about-description {
+        font-size: 1.1rem;
+    }
+    
+    .signature-text {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-tile {
+        width: 90%;
+        padding: 2rem 1.5rem;
+    }
+    
+    .about-title h1 {
+        font-size: 2.4rem;
+    }
+    
+    .about-description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+    
+    .signature-text {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-us-tile {
+        width: 92%;
+        padding: 1.5rem 1rem;
+        margin: 1rem auto;
+    }
+    
+    .about-title h1 {
+        font-size: 2rem;
+    }
+    
+    .about-description {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .signature-container {
+        margin-top: 20px;
+    }
+    
+    .signature-text {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+    
+    .back-to-home {
+        margin-top: 1.5rem;
+    }
+    
+    .back-to-home a {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile Touch Enhancements */
+.active-touch {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(0.98) !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Enable content scrolling on mobile */
+html, body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: none;
+}
+
+/* Fix for iOS touch scrolling */
+* {
+    -webkit-tap-highlight-color: transparent;
+} 

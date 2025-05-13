@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>About Us - BRAND waters</title>
+    <link rel="stylesheet" href="styles/clean.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700&family=Dancing+Script:wght@500;600;700&family=Pacifico&family=Playfair+Display:wght@400;500;600;700;800&family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main id="main-content">
+        <!-- About Us Page Content -->
+        <section id="about-page" class="fullpage-section">
+            <!-- About Us Tile -->
+            <div class="about-us-tile">
+                <div class="about-title">
+                    <h1>About Us</h1>
+                </div>
+                <div class="about-content">
+                    <p class="about-description">
+                        At BRAND WATERS, we design custom labeled bottles that help businesses promote their brand with creativity and integrity. We offer a wide range of bottle designs and labels tailored to meet every promotional need, ensuring that your product not only stands out but also tells a story of quality and trust. Guided by the values of honesty and innovation, we believe that every bottle is more than just a container—it's a powerful tool to connect with your audience and build lasting relationships.
+                    </p>
+                    <div class="signature-container">
+                        <span class="signature-text">Shoaib Khan</span>
+                        <span class="signature-text">Mohd mustafa ahmed</span>
+                    </div>
+                </div>
+                <div class="back-to-home">
+                    <a href="index.html">Back to Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // Parallax effect for background - check if not on mobile
+        function isMobile() {
+            return window.innerWidth <= 768 || ('ontouchstart' in window);
+        }
+        
+        // Parallax effect - only apply on non-mobile devices
+        if (!isMobile()) {
+            window.addEventListener('scroll', function() {
+                const scrollPosition = window.pageYOffset;
+                document.body.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+            });
+            
+            // Add subtle movement to the about tile on mouse move - only on desktop
+            const aboutTile = document.querySelector('.about-us-tile');
+            document.addEventListener('mousemove', function(e) {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+                aboutTile.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        }
+        
+        // Mobile Touch Improvements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Enable touch active states
+            const aboutTile = document.querySelector('.about-us-tile');
+            const backButton = document.querySelector('.back-to-home a');
+            
+            if (aboutTile && 'ontouchstart' in window) {
+                aboutTile.addEventListener('touchstart', function() {
+                    this.classList.add('active-touch');
+                });
+                
+                aboutTile.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.classList.remove('active-touch');
+                    }, 300);
+                });
+                
+                aboutTile.addEventListener('touchmove', function() {
+                    this.classList.remove('active-touch');
+                });
+            }
+            
+            if (backButton && 'ontouchstart' in window) {
+                backButton.addEventListener('touchstart', function() {
+                    this.classList.add('active-touch');
+                });
+                
+                backButton.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.classList.remove('active-touch');
+                    }, 300);
+                });
+                
+                backButton.addEventListener('touchmove', function() {
+                    this.classList.remove('active-touch');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

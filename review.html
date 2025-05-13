@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Us - BRAND waters</title>
+    <link rel="stylesheet" href="styles/clean.css">
+    <link rel="stylesheet" href="styles/review.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;700&family=Dancing+Script:wght@500;600;700&family=Pacifico&family=Playfair+Display:wght@400;500;600;700;800&family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main id="main-content">
+        <!-- Review Us Page Content -->
+        <section id="review-page" class="fullpage-section">
+            <!-- Review Us Tile -->
+            <div class="review-us-tile">
+                <div class="review-title">
+                    <h1>Review Us</h1>
+                </div>
+                <div class="review-content">
+                    <p class="review-description">
+                        We value your feedback! Please share your thoughts about our products and services.
+                    </p>
+                    <div class="review-form-container">
+                        <form id="reviewForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contractId">Contract ID</label>
+                                <input type="text" id="contractId" name="contractId" placeholder="Your Contract ID" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedback">What's on your mind?</label>
+                                <textarea id="feedback" name="feedback" placeholder="Share your experience with us..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Submit Review</button>
+                            <p class="form-message">Thank you for your feedback!</p>
+                        </form>
+                    </div>
+                </div>
+                <div class="back-to-home">
+                    <a href="index.html">Back to Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="js/main.js"></script>
+    <script>
+        // Parallax effect for background
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            document.body.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+        
+        // Form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const reviewForm = document.getElementById('reviewForm');
+            const formMessage = document.querySelector('.form-message');
+            
+            if (reviewForm) {
+                reviewForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const contractId = document.getElementById('contractId').value;
+                    const feedback = document.getElementById('feedback').value;
+                    
+                    // Here you would typically send the data to a server
+                    // For now, we'll just show the success message
+                    
+                    // Show success message
+                    formMessage.style.display = 'block';
+                    formMessage.textContent = 'Thank you for your feedback! We appreciate your time.';
+                    formMessage.style.color = '#4a90e2';
+                    
+                    // Reset form
+                    reviewForm.reset();
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                });
+            }
+            
+            // Mobile Touch Improvements
+            // Enable touch active states
+            const reviewTile = document.querySelector('.review-us-tile');
+            const formInputs = document.querySelectorAll('input, textarea');
+            const submitBtn = document.querySelector('.submit-btn');
+            const backButton = document.querySelector('.back-to-home a');
+            
+            if ('ontouchstart' in window) {
+                // Handle review tile
+                if (reviewTile) {
+                    reviewTile.addEventListener('touchstart', function() {
+                        this.classList.add('active-touch');
+                    });
+                    
+                    reviewTile.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.classList.remove('active-touch');
+                        }, 300);
+                    });
+                    
+                    reviewTile.addEventListener('touchmove', function() {
+                        this.classList.remove('active-touch');
+                    });
+                }
+                
+                // Handle form inputs
+                formInputs.forEach(input => {
+                    input.addEventListener('focus', function() {
+                        // Make sure view doesn't jump when keyboard appears
+                        window.scrollTo(0, 0);
+                        document.body.scrollTop = 0;
+                    });
+                });
+                
+                // Handle submit button
+                if (submitBtn) {
+                    submitBtn.addEventListener('touchstart', function() {
+                        this.classList.add('active-touch');
+                    });
+                    
+                    submitBtn.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.classList.remove('active-touch');
+                        }, 300);
+                    });
+                    
+                    submitBtn.addEventListener('touchmove', function() {
+                        this.classList.remove('active-touch');
+                    });
+                }
+                
+                // Handle back button
+                if (backButton) {
+                    backButton.addEventListener('touchstart', function() {
+                        this.classList.add('active-touch');
+                    });
+                    
+                    backButton.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.classList.remove('active-touch');
+                        }, 300);
+                    });
+                    
+                    backButton.addEventListener('touchmove', function() {
+                        this.classList.remove('active-touch');
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

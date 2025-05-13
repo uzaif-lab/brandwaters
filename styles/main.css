@@ -1,0 +1,185 @@
+/* Styles for BRAND waters */
+
+/* === RESET === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === GLOBAL STYLES === */
+:root {
+    --cream-color: #f8f4e9;
+    --primary-bg-color: #ffffff; /* White background for the main site */
+    --text-color: #444444; /* Dark gray for text */
+    --brand-color: #333333;
+    --accent-color: #4fc3f7;
+    --bright-blue: #0099ff; /* Bright blue for BRAND text */
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cream-color);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* === HOMEPAGE STYLES === */
+.homepage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--primary-bg-color);
+    display: none; /* Hide homepage initially */
+}
+
+.homepage-content {
+    padding: 2rem;
+}
+
+.homepage-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--brand-color);
+}
+
+.homepage-content p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+/* === COVER STYLES === */
+#coverContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cream-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.brand-container {
+    text-align: center;
+}
+
+.brand-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.brand-word {
+    color: var(--bright-blue); /* Bright blue for BRAND */
+}
+
+.water-word {
+    color: #000000; /* Black for water */
+}
+
+#rectangle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent; /* Fully transparent */
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Subtle border */
+    box-shadow: 0 0 0 9999px rgba(245, 245, 220, 0.95); /* Cut-out effect */
+    z-index: 2;
+    transition: all var(--animation-duration) var(--easing-function);
+    mix-blend-mode: normal;
+    backdrop-filter: none; /* Ensure no filter is applied */
+}
+
+.see-through-rectangle {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--brand-color);
+    border-radius: 4px;
+    transition: all var(--animation-duration) cubic-bezier(0.25, 0.1, 0.25, 1);
+    mix-blend-mode: difference;
+    
+    /* Make the rectangle completely see-through */
+    -webkit-mask-image: linear-gradient(#000, #000); /* Ensures content is visible through rectangle */
+    mask-image: linear-gradient(#000, #000);
+    -webkit-backdrop-filter: blur(0);
+    backdrop-filter: blur(0);
+    box-shadow: 0 0 0 9999px var(--cream-color);
+    clip-path: inset(0 0 0 0);
+}
+
+/* Create a cut-out effect in the overlay */
+.see-through-rectangle::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background-color: transparent;
+    z-index: -1;
+}
+
+/* Animation Classes */
+
+/* 1. Rectangle starts growing */
+.rectangle-grow {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+/* 2. Rectangle grows more, words move apart */
+.rectangle-grow-more {
+    width: 300px !important;
+    height: 300px !important;
+}
+
+.words-move-apart .brand-word {
+    transform: translateX(-150px);
+}
+
+.words-move-apart .waters-word {
+    transform: translateX(150px);
+}
+
+/* 3. Rectangle expands to fullscreen */
+.rectangle-full {
+    width: 100vw !important;
+    height: 100vh !important;
+    box-shadow: none !important; /* Remove the cut-out effect when full screen */
+    border: none !important;
+}
+
+/* 4. Cover fades out */
+.cover-fade-out {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.cover-fade-out .cover-overlay {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+/* Create a hole in the overlay using mask */
+.mask-active .cover-overlay {
+    -webkit-mask-image: radial-gradient(circle at center, transparent 0, transparent var(--hole-size, 0px), black var(--hole-size, 0px), black 100%);
+    mask-image: radial-gradient(circle at center, transparent 0, transparent var(--hole-size, 0px), black var(--hole-size, 0px), black 100%);
+} 
